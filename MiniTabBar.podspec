@@ -16,5 +16,5 @@ Written in Swift 3 this UITabBar alternative has a much cleaner look. Titles are
 
   s.ios.deployment_target = '10.0'
 
-  s.source_files = 'MiniTabBar/Classes/**/*'
+  s.source_files = 'MiniTabBar/**/*'
 end

@@ -76,6 +76,9 @@ class MiniTabBarItemView: UIView {
         self.selected = selected
         self.iconView.tintColor = selected ? self.tintColor : UIColor(white: 0.6, alpha: 1.0)
         
+        (self.item.customView as? MiniTabBarItemProtocol)?
+            .setSelected(selected)
+        
         if (animated && selected) {
             /*
              ICON

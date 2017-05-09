@@ -14,7 +14,15 @@ public class MiniTabBarItem {
     var icon: UIImage?
     var customView: UIView?
     var offset = UIOffset.zero
+    
+    
     public var selectable: Bool = true
+    
+    /// Define that
+    /// Whent item alrady selected, user can touch this item again and
+    /// Item whill behave like it was not alrady selected
+    public var lockSelection: Bool = true
+    
     public init(title: String, icon:UIImage) {
         self.title = title
         self.icon = icon
@@ -110,7 +118,7 @@ public class MiniTabBar: UIView {
         if !self.itemViews[selectedIndex].item.selectable {
             return
         }
-        if (selectedIndex == self.currentSelectedIndex) {
+        if (selectedIndex == self.currentSelectedIndex && self.itemViews[selectedIndex].item.lockSelection) {
             return
         }
         self.currentSelectedIndex = selectedIndex
