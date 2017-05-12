@@ -114,7 +114,18 @@ public class MiniTabBar: UIView {
         self.selectItem(selectedIndex)
     }
     
+    /// Method mark item at selectedIndex as selected and notify delegate about new selected item
+    /// Like user touched up item
     public func selectItem(_ selectedIndex: Int, animated: Bool = true) {
+        
+        self.setAppearanceAsSelected(selectedIndex, animated: animated)
+        
+        self.delegate?.tabSelected(selectedIndex)
+    }
+    
+    
+    /// Method only mark appearance of item at selectedIndex as selected
+    public func setAppearanceAsSelected(_ selectedIndex: Int, animated: Bool = true) {
         if !self.itemViews[selectedIndex].item.selectable {
             return
         }
@@ -127,8 +138,6 @@ public class MiniTabBar: UIView {
             let selected = (index == selectedIndex)
             v.setSelected(selected, animated: animated)
         }
-        
-        self.delegate?.tabSelected(selectedIndex)
     }
 }
 
