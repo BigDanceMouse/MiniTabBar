@@ -63,6 +63,12 @@ public class MiniTabBar: UIView {
         }
     }
     
+    override public var backgroundColor: UIColor? {
+        didSet {
+            self.bg.backgroundColor = self.backgroundColor
+        }
+    }
+    
     fileprivate var itemViews = [MiniTabBarItemView]()
     fileprivate var currentSelectedIndex: Int?
     fileprivate let bg = UIView()
